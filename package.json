@@ -9,7 +9,7 @@
     "build": "next build",
     "format": "prettier . --write",
     "preinstall": "only-allow pnpm",
-    "test": "jest",
+    "test": "node_modules/.bin/jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky",
