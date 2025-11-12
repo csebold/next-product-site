@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 import { GET as getCollection, POST } from '@/app/api/learning/route';
 import { GET as getItem, PUT, DELETE } from '@/app/api/learning/[resourceId]/route';
 import {

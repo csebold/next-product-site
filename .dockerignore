@@ -38,9 +38,8 @@ lerna-debug.log*
 .gitignore
 
 # docker
-Dockerfile
+infra/
 .dockerignore
-docker-compose*.yml
 
 # IDE
 .vscode
