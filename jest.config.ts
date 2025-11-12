@@ -3,7 +3,7 @@ import { pathsToModuleNameMapper } from 'ts-jest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-const tsconfig = JSON.parse(fs.readFileSync(path.join(__dirname, 'tsconfig.json'), 'utf8'));
+const tsconfig = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'tsconfig.json'), 'utf8'));
 
 const config: Config = {
   setupFilesAfterEnv: ['<rootDir>/tests/setupJest.ts'],
