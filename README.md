@@ -24,14 +24,32 @@ This is a dummy product site that needs help adding new features and maturing th
 
 ## Getting Started
 
-### Prerequisite
+You can run this application using either Docker (recommended for simplicity) or by installing dependencies locally.
 
-- [Install Node v22+](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
-- [Install PNPM v9+](https://pnpm.io/installation)
+### Option 1: Using Docker (Recommended)
+
+#### Prerequisite
 - [Install Docker Desktop](https://www.docker.com/products/docker-desktop)
 
-### Setup
+#### Setup
+1. Clone the repository with `git clone` or fork the repository.
+2. Run `docker-compose up --build` to build and start the application.
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+To stop the application:
+```bash
+docker-compose down
+```
+
+For more details, see [Docker Setup Documentation](./docs/devops/docker-setup.md).
+
+### Option 2: Local Development
+
+#### Prerequisite
+- [Install Node v22+](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
+- [Install PNPM v9+](https://pnpm.io/installation)
+
+#### Setup
 1. Clone the repository with `git clone` or fork the repository.
 2. Run `pnpm i` to install dependencies.
 3. Run `pnpm dev` to start application.
