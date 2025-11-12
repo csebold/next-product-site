@@ -1,6 +1,6 @@
 'use client';
 import { Product } from '@/src/type/products';
-import { FormEvent, useMemo, useRef, useState } from 'react';
+import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import type { ProductResource } from '@/src/type/products';
 
 const ProductDetails = (product: Product) => {
@@ -86,6 +86,34 @@ const ProductDetails = (product: Product) => {
     }
   };
 
+  // Fetch learning resources on component mount
+  useEffect(() => {
+    fetchLearningResources();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [product.id]);
+
+  const deleteResource = async (resourceId: string) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(`/api/learning/${resourceId}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        // Refresh the list after deletion
+        await fetchLearningResources();
+      } else {
+        console.error('Failed to delete resource');
+        alert('Failed to delete resource. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error deleting resource:', error);
+      alert('Error deleting resource. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const updateLearningResources = async (updatedResources: ProductResource[]) => {
     setIsLoading(true);
     try {
@@ -165,10 +193,7 @@ const ProductDetails = (product: Product) => {
                     {resource.name}
                   </a>
                   <button
-                    onClick={() => {
-                      const updated = learningResources.filter((r) => r.resourceId !== resource.resourceId);
-                      updateLearningResources(updated);
-                    }}
+                    onClick={() => deleteResource(resource.resourceId)}
                     disabled={isLoading}
                     className='text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 text-sm ml-2 disabled:opacity-50 disabled:cursor-not-allowed'
                     title='Delete resource'

@@ -110,7 +110,7 @@ function generateLearning(products) {
       const topic = topics[randomInt(topics.length)];
 
       const learningResource = {
-        resourceId: `learn-${String(resourceCounter).padStart(5, '0')}`,
+        resourceId: `learn-l-${String(resourceCounter).padStart(5, '0')}`,
         productId: product.id,
         name: `${topic} ${resourceType}`,
         description: faker.commerce.productDescription(),
