@@ -21,6 +21,7 @@ This is a dummy product site that needs help adding new features and maturing th
 - ESLint
 - Folder Structure
 - Mock Product Page (`/app/products`)
+- Mock Product Details Page (`/app/products/[productId]`)
 
 ## Getting Started
 
